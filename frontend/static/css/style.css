@@ -1,0 +1,434 @@
+/*
+  Signify Frontend Stylesheet - Professional Theme
+  -------------------------------------------------
+  A clean, corporate, and accessible design system.
+*/
+
+/* 1. Design System & Variables
+------------------------------ */
+:root {
+  /* Fonts */
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Colors */
+  --color-light-bg: #f8f9fa;
+  --color-white: #ffffff;
+  --color-dark-text: #333;
+  --color-light-text: #666;
+  --color-border: #dee2e6;
+  --color-primary: #0056b3;
+  --color-primary-dark: #004494;
+  --color-secondary: #6c757d;
+  --color-secondary-dark: #5a6268;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  /* Effects */
+  --shadow-sm: 0 1px 3px var(--color-shadow);
+  --shadow-md: 0 4px 10px var(--color-shadow);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+/* 2. Global Styles & Reset
+------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--color-dark-text);
+  background-color: var(--color-white);
+  line-height: 1.6;
+}
+h1, h2, h3, h4, p, label { margin: 0; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 3. General Components
+------------------------------ */
+.btn {
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+.btn-secondary:hover {
+  background-color: var(--color-secondary-dark);
+}
+.btn-small {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.8rem;
+}
+
+/* 4. Header & Navigation
+------------------------------ */
+.main-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.logo { height: 40px; }
+.brand-name { font-size: 1.5rem; font-weight: 700; }
+.main-nav {
+  display: flex;
+  gap: var(--space-4);
+}
+.nav-link {
+  font-weight: 600;
+  color: var(--color-light-text);
+  transition: color 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--color-primary);
+}
+
+/* 5. Page Sections
+------------------------------ */
+.hero-section {
+  background-color: var(--color-light-bg);
+  padding: var(--space-6) 0;
+  text-align: center;
+}
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-3);
+}
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--color-light-text);
+  max-width: 600px;
+  margin: 0 auto var(--space-4);
+}
+
+.content-section {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.content-section.alt-bg {
+  background-color: var(--color-light-bg);
+}
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+}
+
+/* 6. Translate Section
+------------------------------ */
+.translate-container {
+  display: flex;
+  gap: var(--space-5);
+}
+.video-column, .results-column {
+  flex: 1;
+}
+.video-feed {
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+  position: relative;
+  background-color: #000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.video-feed video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.video-controls.visible {
+  opacity: 1;
+}
+.controls-group {
+  margin-top: var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+}
+
+.results-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.output-box {
+  background-color: var(--color-light-bg);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+.output-box label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-light-text);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+.output-field {
+  min-height: 40px;
+  padding: var(--space-2);
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  border: 1px solid #ccc;
+  text-align: right;
+}
+.output-field-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.output-field-wrapper p {
+  flex-grow: 1;
+  min-height: 40px;
+  padding: var(--space-2);
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  border: 1px solid #ccc;
+  text-align: right;
+}
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.play-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.play-button:hover { background-color: var(--color-primary-dark); }
+
+/* 7. Insights Section
+------------------------------ */
+.insights-container {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+}
+.chart-container, .metrics-container {
+  flex: 1;
+  padding: var(--space-4);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.chart-container img {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+.metrics-container h3, .chart-container h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-3);
+  text-align: center;
+}
+.metrics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.metrics-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.metrics-list li:last-child {
+  border-bottom: none;
+}
+.metrics-list li span {
+  font-weight: 600;
+  color: var(--color-light-text);
+}
+.metrics-list li strong {
+  font-weight: 700;
+}
+
+/* Corrected-sentence tokens and suggestion UI */
+.word-token { display: inline-block; margin: 0 6px; padding: 2px 4px; font-weight: 600; }
+.word-token.incorrect { color: var(--color-dark-text); text-decoration-line: underline; text-decoration-style: wavy; text-decoration-color: #d9534f; }
+/* Corrected-sentence tokens and suggestion UI */
+.word-token { display: inline-block; margin: 0 6px; padding: 2px 4px; font-weight: 600; }
+.word-token.incorrect { color: var(--color-dark-text); text-decoration-line: underline; text-decoration-style: wavy; text-decoration-color: #d9534f; }
+#autoBox {
+  margin-top: 12px;
+  padding: 10px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+.suggestions-header {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.suggestions-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.suggestion-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+.suggestion-btn {
+  background: #f1f3f5;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.suggestion-btn:hover {
+  background: #e9ecef;
+}
+.suggestion-ignore {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.suggestion-ignore:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* 8. Signs Section
+------------------------------ */
+.signs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--space-4);
+}
+.sign-card {
+  background-color: var(--color-light-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.sign-card .sign-image {
+  height: 80px;
+  width: 100%;
+  background-color: var(--color-white);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.sign-card .sign-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sign-card .sign-label {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* 9. Footer
+------------------------------ */
+.main-footer {
+  padding: var(--space-4) 0;
+  text-align: center;
+  background: var(--color-light-bg);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-light-text);
+}
+
+/* 10. Responsive Design
+------------------------------- */
+@media (max-width: 992px) {
+  .translate-container, .insights-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    height: auto;
+    padding: var(--space-3) 0;
+  }
+  .main-nav {
+    margin-top: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-content h2 { font-size: 2rem; }
+  .section-title { font-size: 1.75rem; }
+}

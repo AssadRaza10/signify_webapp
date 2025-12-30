@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Signify - Professional Sign Language Translator</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="main-header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-container">
+            <img src="static/images/logo.png" alt="Signify Logo" class="logo">
+            <h1 class="brand-name">Signify</h1>
+          </div>
+          <nav class="main-nav">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#translate" class="nav-link">Translate</a>
+            <a href="#insights" class="nav-link">Insights</a>
+            <a href="#signs" class="nav-link">All Signs</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h2>Welcome to Signify</h2>
+          <p>Signify is a real-time Urdu Sign Language translator designed to empower speech- and hearing-impaired individuals.Built for accessibility, Signify bridges the communication gap between the deaf community and society.</p>
+          <a href="#translate" class="btn btn-primary">Start Translating</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Translate Section -->
+    <section id="translate" class="content-section">
+      <div class="container">
+        <h2 class="section-title">Live Translation</h2>
+        <div class="translate-container">
+          <div class="video-column">
+            <div class="video-feed">
+              <video id="webcam" playsinline muted poster="static/images/logo.png"></video>
+              <div class="video-controls">
+                <button id="startBtn" class="btn">Start</button>
+                <button id="pauseBtn" class="btn" style="display: none;">Pause</button>
+                <button id="resumeBtn" class="btn" style="display: none;">Resume</button>
+              </div>
+            </div>
+            <div class="controls-group">
+                <button id="spaceBtn" class="btn">Space (S)</button>
+                <button id="clearBtn" class="btn btn-secondary">Clear</button>
+            </div>
+          </div>
+          <div class="results-column">
+            <div class="output-box">
+              <label for="wordsBox">Detected Words</label>
+              <div class="output-field-wrapper">
+                <p id="wordsBox" dir="rtl"></p>
+                <button id="deleteLastBtn" class="btn btn-secondary btn-small">Delete</button>
+              </div>
+            </div>
+            <div class="output-box">
+              <label for="sentenceBox">Full Sentence</label>
+              <p id="sentenceBox" class="output-field" dir="rtl"></p>
+            </div>
+            <div class="output-box">
+              <label for="autoBox">Suggested Words</label>
+              <div id="autoBox" class="output-field" dir="rtl"></div>
+              <div id="suggestionsPanel" class="suggestions-panel" style="display:none;" aria-live="polite"></div>
+            </div>
+            <div class="output-box">
+              <label>Sentence Audio</label>
+              <div class="audio-controls">
+                <button id="playBtn" class="play-button">&#9658;</button>
+                <span id="audioName">No audio generated</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="content-section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Model Insights</h2>
+        <div class="insights-container">
+          <div class="chart-container">
+            <h3>Confusion Matrix</h3>
+            <img src="static/images/Confusion matrix.jpg" alt="Confusion Matrix" />
+          </div>
+          <div class="metrics-container">
+            <h3>Performance Metrics</h3>
+            <ul class="metrics-list">
+              <li><span>Accuracy</span><strong>0.948</strong></li>
+              <li><span>F1 Score</span><strong>0.9486</strong></li>
+              <li><span>Precision</span><strong>0.9495</strong></li>
+              <li><span>Recall</span><strong>0.9483</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signs Section -->
+    <section id="signs" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Supported Signs</h2>
+            <div class="signs-grid">
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Alif.jpg" alt="Alif"></div>
+                <div class="sign-label">ا</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Bay.jpg" alt="Bay"></div>
+                <div class="sign-label">ب</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Pay.jpg" alt="Pay"></div>
+                <div class="sign-label">پ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Tay.jpg" alt="Tay"></div>
+                <div class="sign-label">ت</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Taay.jpg" alt="Taay"></div>
+                <div class="sign-label">ٹ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Say.jpg" alt="Say"></div>
+                <div class="sign-label">ث</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Chay.jpg" alt="Chay"></div>
+                <div class="sign-label">چ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Hay.jpg" alt="Hay"></div>
+                <div class="sign-label">ح</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Khay.jpg" alt="Khay"></div>
+                <div class="sign-label">خ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Dal.jpg" alt="Dal"></div>
+                <div class="sign-label">د</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Daal.jpg" alt="Daal"></div>
+                <div class="sign-label">ڈ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Zaal.jpg" alt="Zaal"></div>
+                <div class="sign-label">ذ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Ray.jpg" alt="Ray"></div>
+                <div class="sign-label">ر</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Zay.jpg" alt="Zay"></div>
+                <div class="sign-label">ز</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Zaey.jpg" alt="Zaey"></div>
+                <div class="sign-label">ژ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Seen.jpg" alt="Seen"></div>
+                <div class="sign-label">س</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Sheen.jpg" alt="Sheen"></div>
+                <div class="sign-label">ش</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Suad.jpg" alt="Suad"></div>
+                <div class="sign-label">ص</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Zuad.jpg" alt="Zuad"></div>
+                <div class="sign-label">ض</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Tuey.jpg" alt="Tuey"></div>
+                <div class="sign-label">ط</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Zuey.jpg" alt="Zuey"></div>
+                <div class="sign-label">ظ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Ain.jpg" alt="Ain"></div>
+                <div class="sign-label">ع</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/ghain.jpg" alt="ghain"></div>
+                <div class="sign-label">غ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Fay.jpg" alt="Fay"></div>
+                <div class="sign-label">ف</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Kaf.jpg" alt="Kaf"></div>
+                <div class="sign-label">ق</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Kiaf.jpg" alt="Kiaf"></div>
+                <div class="sign-label">ک</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Gaaf.jpg" alt="Gaaf"></div>
+                <div class="sign-label">گ</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Lam.jpg" alt="Lam"></div>
+                <div class="sign-label">ل</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Meem.jpg" alt="Meem"></div>
+                <div class="sign-label">م</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Nuun.jpg" alt="Nuun"></div>
+                <div class="sign-label">ن</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Nuungh.jpg" alt="Nuungh"></div>
+                <div class="sign-label">ں</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Wao.jpg" alt="Wao"></div>
+                <div class="sign-label">و</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Hamza.jpg" alt="Hamza"></div>
+                <div class="sign-label">ء</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Byeh.jpg" alt="Byeh"></div>
+                <div class="sign-label">ے</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Cyeh.jpg" alt="Cyeh"></div>
+                <div class="sign-label">ی</div>
+              </div>
+              <div class="sign-card">
+                <div class="sign-image"><img src="static/signs/Dochahay.jpg" alt="Dochahay"></div>
+                <div class="sign-label">ھ</div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <p>&copy; 2025 Signify. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <audio id="ttsPlayer" controls style="display:none"></audio>
+  <script src="static/js/predict.js"></script>
+</body>
+</html>
