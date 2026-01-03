@@ -21,18 +21,19 @@ import functools
 
 # ---------- CONFIG ----------
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Project root directory
-MODEL_DIR = os.path.join(ROOT, "model")
-MODEL_FILENAME = "model.h5"  # Anti-overfitting CNN model
-LABEL_ENCODER_FILENAME = "label_encoder.pkl"
-SCALER_FILENAME = "scaler.pkl"
-MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILENAME)
-LABEL_ENCODER_PATH = os.path.join(MODEL_DIR, LABEL_ENCODER_FILENAME)
-SCALER_PATH = os.path.join(MODEL_DIR, SCALER_FILENAME)
+MODEL_DIR = os.environ.get("MODEL_DIR", os.path.join(ROOT, "model"))
+MODEL_FILENAME = os.environ.get("MODEL_FILENAME", "model.h5")
+LABEL_ENCODER_FILENAME = os.environ.get("LABEL_ENCODER_FILENAME", "label_encoder.pkl")
+SCALER_FILENAME = os.environ.get("SCALER_FILENAME", "scaler.pkl")
+# Allow overriding full paths via environment variables (useful for cloud hosting)
+MODEL_PATH = os.environ.get("MODEL_PATH", os.path.join(MODEL_DIR, MODEL_FILENAME))
+LABEL_ENCODER_PATH = os.environ.get("LABEL_ENCODER_PATH", os.path.join(MODEL_DIR, LABEL_ENCODER_FILENAME))
+SCALER_PATH = os.environ.get("SCALER_PATH", os.path.join(MODEL_DIR, SCALER_FILENAME))
 
 STABLE_FRAMES = 2  # Number of stable frames required for prediction
 CONF_THRESHOLD = 0.50  # Confidence threshold for predictions
 STATE_TTL_MINUTES = 60  # Session state time-to-live
-AUDIO_FOLDER = os.path.join(ROOT, "frontend", "static", "audio")
+AUDIO_FOLDER = os.environ.get("AUDIO_FOLDER", os.path.join(ROOT, "frontend", "static", "audio"))
 os.makedirs(AUDIO_FOLDER, exist_ok=True)
 
 # ---------- FLASK APP ----------
@@ -54,6 +55,7 @@ try:
         print(f"Model loaded: {MODEL_PATH}")
     else:
         print("Warning: CNN model file not found at", MODEL_PATH)
+        print("You can set the MODEL_PATH environment variable to point to a model location in Azure.")
 except Exception as e:
     print("⚠️ Model load error:", e)
     traceback.print_exc()
@@ -520,9 +522,13 @@ def replace_word_api():
 def finalize_api():
     sid = get_session_from_request() or request.remote_addr or "anon"
     s = get_state(sid)
-    full_text = (s["urdu_sentence"] + " " + s["current_word"]).strip()
-    final_text, audio_file = finalize_and_tts_to_file(full_text, sid)
-    s["urdu_sentence"] = ""
+    # Build a list of word dicts to pass to the TTS helper. Keep existing sentence tokens
+    list_words = list(s.get("urdu_sentence") or [])
+    if s.get("current_word"):
+        list_words.append({"word": s["current_word"], "is_correct": s["current_word"] in urdu_dict, "id": str(uuid.uuid4())})
+    final_text, audio_file = finalize_and_tts_to_file(list_words, sid)
+    # Reset session state
+    s["urdu_sentence"] = []
     s["current_word"] = ""
     s["prev_label"] = None
     s["stable_count"] = 0
@@ -604,4 +610,6 @@ def delete_last_api():
 
 # ---------- MAIN ----------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
+    debug_mode = os.environ.get("DEBUG", "False").lower() in ("1", "true", "yes")
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=debug_mode)

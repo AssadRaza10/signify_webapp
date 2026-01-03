@@ -7,3 +7,4 @@ tensorflow
 gTTS
 python-Levenshtein
 google-genai
+gunicorn==20.1.0

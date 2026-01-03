@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   
   <!-- Main stylesheet -->
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <div class="page-wrapper">
@@ -20,7 +20,7 @@
       <div class="container">
         <div class="header-content">
           <div class="logo-container">
-            <img src="static/images/logo.png" alt="Signify Logo" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Signify Logo" class="logo">
             <h1 class="brand-name">Signify</h1>
           </div>
           <nav class="main-nav">
@@ -51,7 +51,7 @@
         <div class="translate-container">
           <div class="video-column">
             <div class="video-feed">
-              <video id="webcam" playsinline muted poster="static/images/logo.png"></video>
+              <video id="webcam" playsinline muted poster="{{ url_for('static', filename='images/logo.png') }}"></video>
               <div class="video-controls">
                 <button id="startBtn" class="btn">Start</button>
                 <button id="pauseBtn" class="btn" style="display: none;">Pause</button>
@@ -99,7 +99,7 @@
         <div class="insights-container">
           <div class="chart-container">
             <h3>Confusion Matrix</h3>
-            <img src="static/images/Confusion matrix.jpg" alt="Confusion Matrix" />
+            <img src="{{ url_for('static', filename='images/Confusion%20matrix.jpg') }}" alt="Confusion Matrix" />
           </div>
           <div class="metrics-container">
             <h3>Performance Metrics</h3>
@@ -120,147 +120,147 @@
             <h2 class="section-title">Supported Signs</h2>
             <div class="signs-grid">
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Alif.jpg" alt="Alif"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Alif.jpg') }}" alt="Alif"></div>
                 <div class="sign-label">ا</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Bay.jpg" alt="Bay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Bay.jpg') }}" alt="Bay"></div>
                 <div class="sign-label">ب</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Pay.jpg" alt="Pay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Pay.jpg') }}" alt="Pay"></div>
                 <div class="sign-label">پ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Tay.jpg" alt="Tay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Tay.jpg') }}" alt="Tay"></div>
                 <div class="sign-label">ت</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Taay.jpg" alt="Taay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Taay.jpg') }}" alt="Taay"></div>
                 <div class="sign-label">ٹ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Say.jpg" alt="Say"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Say.jpg') }}" alt="Say"></div>
                 <div class="sign-label">ث</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Chay.jpg" alt="Chay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Chay.jpg') }}" alt="Chay"></div>
                 <div class="sign-label">چ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Hay.jpg" alt="Hay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Hay.jpg') }}" alt="Hay"></div>
                 <div class="sign-label">ح</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Khay.jpg" alt="Khay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Khay.jpg') }}" alt="Khay"></div>
                 <div class="sign-label">خ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Dal.jpg" alt="Dal"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Dal.jpg') }}" alt="Dal"></div>
                 <div class="sign-label">د</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Daal.jpg" alt="Daal"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Daal.jpg') }}" alt="Daal"></div>
                 <div class="sign-label">ڈ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Zaal.jpg" alt="Zaal"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Zaal.jpg') }}" alt="Zaal"></div>
                 <div class="sign-label">ذ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Ray.jpg" alt="Ray"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Ray.jpg') }}" alt="Ray"></div>
                 <div class="sign-label">ر</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Zay.jpg" alt="Zay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Zay.jpg') }}" alt="Zay"></div>
                 <div class="sign-label">ز</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Zaey.jpg" alt="Zaey"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Zaey.jpg') }}" alt="Zaey"></div>
                 <div class="sign-label">ژ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Seen.jpg" alt="Seen"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Seen.jpg') }}" alt="Seen"></div>
                 <div class="sign-label">س</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Sheen.jpg" alt="Sheen"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Sheen.jpg') }}" alt="Sheen"></div>
                 <div class="sign-label">ش</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Suad.jpg" alt="Suad"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Suad.jpg') }}" alt="Suad"></div>
                 <div class="sign-label">ص</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Zuad.jpg" alt="Zuad"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Zuad.jpg') }}" alt="Zuad"></div>
                 <div class="sign-label">ض</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Tuey.jpg" alt="Tuey"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Tuey.jpg') }}" alt="Tuey"></div>
                 <div class="sign-label">ط</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Zuey.jpg" alt="Zuey"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Zuey.jpg') }}" alt="Zuey"></div>
                 <div class="sign-label">ظ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Ain.jpg" alt="Ain"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Ain.jpg') }}" alt="Ain"></div>
                 <div class="sign-label">ع</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/ghain.jpg" alt="ghain"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/ghain.jpg') }}" alt="ghain"></div>
                 <div class="sign-label">غ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Fay.jpg" alt="Fay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Fay.jpg') }}" alt="Fay"></div>
                 <div class="sign-label">ف</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Kaf.jpg" alt="Kaf"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Kaf.jpg') }}" alt="Kaf"></div>
                 <div class="sign-label">ق</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Kiaf.jpg" alt="Kiaf"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Kiaf.jpg') }}" alt="Kiaf"></div>
                 <div class="sign-label">ک</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Gaaf.jpg" alt="Gaaf"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Gaaf.jpg') }}" alt="Gaaf"></div>
                 <div class="sign-label">گ</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Lam.jpg" alt="Lam"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Lam.jpg') }}" alt="Lam"></div>
                 <div class="sign-label">ل</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Meem.jpg" alt="Meem"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Meem.jpg') }}" alt="Meem"></div>
                 <div class="sign-label">م</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Nuun.jpg" alt="Nuun"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Nuun.jpg') }}" alt="Nuun"></div>
                 <div class="sign-label">ن</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Nuungh.jpg" alt="Nuungh"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Nuungh.jpg') }}" alt="Nuungh"></div>
                 <div class="sign-label">ں</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Wao.jpg" alt="Wao"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Wao.jpg') }}" alt="Wao"></div>
                 <div class="sign-label">و</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Hamza.jpg" alt="Hamza"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Hamza.jpg') }}" alt="Hamza"></div>
                 <div class="sign-label">ء</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Byeh.jpg" alt="Byeh"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Byeh.jpg') }}" alt="Byeh"></div>
                 <div class="sign-label">ے</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Cyeh.jpg" alt="Cyeh"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Cyeh.jpg') }}" alt="Cyeh"></div>
                 <div class="sign-label">ی</div>
               </div>
               <div class="sign-card">
-                <div class="sign-image"><img src="static/signs/Dochahay.jpg" alt="Dochahay"></div>
+                <div class="sign-image"><img src="{{ url_for('static', filename='signs/Dochahay.jpg') }}" alt="Dochahay"></div>
                 <div class="sign-label">ھ</div>
               </div>
             </div>
@@ -276,6 +276,6 @@
   </div>
 
   <audio id="ttsPlayer" controls style="display:none"></audio>
-  <script src="static/js/predict.js"></script>
+  <script src="{{ url_for('static', filename='js/predict.js') }}"></script>
 </body>
 </html>
