@@ -610,6 +610,9 @@ def delete_last_api():
 
 # ---------- MAIN ----------
 if __name__ == "__main__":
+    # IMPORTANT:
+    # Azure App Service runs this app using Gunicorn (via startup.sh),
+    # so Flask's built-in server is only for local development.
     debug_mode = os.environ.get("DEBUG", "False").lower() in ("1", "true", "yes")
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 8000))  # Azure requires port 8000
     app.run(host="0.0.0.0", port=port, debug=debug_mode)
