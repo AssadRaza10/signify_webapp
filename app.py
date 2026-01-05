@@ -20,7 +20,8 @@ import csv
 import functools
 
 # ---------- CONFIG ----------
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Project root directory
+# Project root directory: when `app.py` lives at the repository root, use its folder.
+ROOT = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.environ.get("MODEL_DIR", os.path.join(ROOT, "model"))
 MODEL_FILENAME = os.environ.get("MODEL_FILENAME", "model.h5")
 LABEL_ENCODER_FILENAME = os.environ.get("LABEL_ENCODER_FILENAME", "label_encoder.pkl")
