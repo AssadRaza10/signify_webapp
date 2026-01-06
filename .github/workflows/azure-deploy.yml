@@ -35,13 +35,9 @@ jobs:
         run: |
           echo "No tests configured; skipping smoke checks"
 
-      - name: Archive app for deployment
-        run: |
-          zip -r app.zip . -x ".git/*" ".github/*"
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: app.zip
+          package: .
