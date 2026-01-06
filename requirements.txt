@@ -1,12 +1,9 @@
 flask
 flask-cors
 gunicorn
-opencv-python-headless
 numpy
-pandas
-scikit-learn
 tensorflow
-mediapipe
-gTTS
+scikit-learn
 joblib
-python-Levenshtein
+gtts
+opencv-python-headless
